@@ -23,7 +23,9 @@ int main() {
 
     printf("Public key: (p = ");
     for (int i = NUM_WORDS - 1; i >= 0; i--) printf("%016llx", p[i]);
-    printf(", g = %llu, y = ", g[0]);
+    printf(", g = ");
+    for (int i = NUM_WORDS - 1; i >= 0; i--) printf("%016llx", g[i]);
+    printf(", y = ");
     for (int i = NUM_WORDS - 1; i >= 0; i--) printf("%016llx", y[i]);
     printf(")\n");
 
@@ -42,7 +44,7 @@ int main() {
     encrypt(c1, c2, p, g, y, message, NUM_WORDS);
     printf("Message encrypted.\n");
 
-    printf("Encrypted message: (c1 = ");
+    printf("Ciphertext: (c1 = ");
     for (int i = NUM_WORDS - 1; i >= 0; i--) printf("%016llx", c1[i]);
     printf(", c2 = ");
     for (int i = NUM_WORDS - 1; i >= 0; i--) printf("%016llx", c2[i]);
